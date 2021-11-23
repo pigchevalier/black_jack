@@ -2,6 +2,7 @@ require_relative 'card'
 require_relative 'player'
 require_relative 'user'
 require_relative 'dealer'
+require_relative 'deck_of_cards'
 
 class Game
 
@@ -22,14 +23,7 @@ class Game
   end
 
   def create_deck
-    self.deck_of_cards = []
-    nominals = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "V", "D", "K", "A"]
-    suits = ["+", "<3", "^", "<>"]
-    for suit in suits do
-      for nominal in nominals do
-        self.deck_of_cards.push(Card.new(nominal, suit))
-      end
-    end
+    self.deck_of_cards = DeckOfCards.new()
   end
 
   def start_round 
